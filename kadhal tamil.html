@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register - Kaadhal Thendral</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom right, #1a1a2e, #3c1053);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #fff;
+    }
+
+    .back-button {
+      position: absolute;
+      top: 50px;
+      left: 80px;
+      z-index: 10;
+    }
+    
+    .back-button img {
+      width: 40px;
+      height: 40px;
+      transition: transform 0.3s ease;
+    }
+    
+    .back-button img:hover {
+      transform: scale(1.1);
+    }
+    .register-box {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 182, 255, 0.2);
+      max-width: 450px;
+      width: 90%;
+      text-align: center;
+    }
+
+    .register-box h2 {
+      margin-bottom: 25px;
+      color: #ffb3f7;
+    }
+
+    .register-box input {
+      width: 100%;
+      padding: 12px 15px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      font-size: 1em;
+    }
+
+    .register-box button {
+      margin-top: 15px;
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background: #e46eff;
+      color: white;
+      font-size: 1em;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .register-box button:hover {
+      background: #d154f2;
+    }
+
+    .register-box p {
+      margin-top: 20px;
+      font-size: 0.9em;
+    }
+
+    .register-box a {
+      color: #ffb3f7;
+      text-decoration: none;
+    }
+
+    .register-box a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+<div class="back-button">
+     <a href="signin.html"><img src="back arrow.png" alt="Back to Home"></a>
+   </div>
+  <div class="register-box">
+    <h2>Create Your Account</h2>
+    <form action="#">
+      <input type="text" placeholder="Full Name" required />
+      <input type="email" placeholder="Email" required />
+      <input type="password" placeholder="Password" required />
+      <input type="password" placeholder="Confirm Password" required />
+      <a href="home.html"><button type="submit">Register</button></a>
+    </form>
+    <p>Already have an account? <a href="signin.html">Sign In</a></p>
+  </div>
+
+</body>
+</html>

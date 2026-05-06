@@ -1,0 +1,89 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import './index.css';
+import Index from './pages/Index.jsx';
+import Sogam from './pages/Sogam.jsx';
+import Premam from './pages/Premam.jsx';
+import English from './pages/English.jsx';
+import Celeb from './pages/Celeb.jsx';
+import Partymal from './pages/Partymal.jsx';
+import Sogamhome from './pages/Sogamhome.jsx';
+import Sadkann from './pages/Sadkann.jsx';
+import Page90Seng from './pages/Page90Seng.jsx';
+import Signin from './pages/Signin.jsx';
+import Register from './pages/Register.jsx';
+import Home from './pages/Home.jsx';
+import Kadhaltamil from './pages/Kadhaltamil.jsx';
+import Sogatamil from './pages/Sogatamil.jsx';
+import Kaadhalhome from './pages/Kaadhalhome.jsx';
+import Kuthuhome from './pages/Kuthuhome.jsx';
+import Partyhome from './pages/Partyhome.jsx';
+import Page90Shome from './pages/Page90Shome.jsx';
+import Singers from './pages/Singers.jsx';
+import Kuthutamil from './pages/Kuthutamil.jsx';
+import Partytamil from './pages/Partytamil.jsx';
+import Page90Stamil from './pages/Page90Stamil.jsx';
+import Popenglish from './pages/Popenglish.jsx';
+import Loveenglish from './pages/Loveenglish.jsx';
+import Romancetelugu from './pages/Romancetelugu.jsx';
+import Lovekannada from './pages/Lovekannada.jsx';
+import Sadeng from './pages/Sadeng.jsx';
+import Sadmala from './pages/Sadmala.jsx';
+import Sadtelu from './pages/Sadtelu.jsx';
+import Kuthumal from './pages/Kuthumal.jsx';
+import Kuthutelu from './pages/Kuthutelu.jsx';
+import Kuthukann from './pages/Kuthukann.jsx';
+import Page90Smal from './pages/Page90Smal.jsx';
+import Page90Stelu from './pages/Page90Stelu.jsx';
+import Page90Skann from './pages/Page90Skann.jsx';
+import Partykan from './pages/Partykan.jsx';
+import Partytelu from './pages/Partytelu.jsx';
+import Contact from './pages/Contact.jsx';
+
+
+export default function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Index />} />
+        <Route path="/index" element={<Index />} />
+        <Route path="/sogam" element={<Sogam />} />
+        <Route path="/premam" element={<Premam />} />
+        <Route path="/english" element={<English />} />
+        <Route path="/celeb" element={<Celeb />} />
+        <Route path="/party mal" element={<Partymal />} />
+        <Route path="/Sogam home" element={<Sogamhome />} />
+        <Route path="/sad kann" element={<Sadkann />} />
+        <Route path="/90s eng" element={<Page90Seng />} />
+        <Route path="/signin" element={<Signin />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/kadhal tamil" element={<Kadhaltamil />} />
+        <Route path="/soga tamil" element={<Sogatamil />} />
+        <Route path="/kaadhal home" element={<Kaadhalhome />} />
+        <Route path="/kuthu home" element={<Kuthuhome />} />
+        <Route path="/party home" element={<Partyhome />} />
+        <Route path="/90s home" element={<Page90Shome />} />
+        <Route path="/singers" element={<Singers />} />
+        <Route path="/kuthu tamil" element={<Kuthutamil />} />
+        <Route path="/party tamil" element={<Partytamil />} />
+        <Route path="/90s tamil" element={<Page90Stamil />} />
+        <Route path="/pop english" element={<Popenglish />} />
+        <Route path="/love english" element={<Loveenglish />} />
+        <Route path="/romance telugu" element={<Romancetelugu />} />
+        <Route path="/love kannada" element={<Lovekannada />} />
+        <Route path="/sad eng" element={<Sadeng />} />
+        <Route path="/sad mala" element={<Sadmala />} />
+        <Route path="/sad telu" element={<Sadtelu />} />
+        <Route path="/kuthu mal" element={<Kuthumal />} />
+        <Route path="/kuthu telu" element={<Kuthutelu />} />
+        <Route path="/kuthu kann" element={<Kuthukann />} />
+        <Route path="/90s mal" element={<Page90Smal />} />
+        <Route path="/90s telu" element={<Page90Stelu />} />
+        <Route path="/90s kann" element={<Page90Skann />} />
+        <Route path="/party kan" element={<Partykan />} />
+        <Route path="/party telu" element={<Partytelu />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </Router>
+  );
+}

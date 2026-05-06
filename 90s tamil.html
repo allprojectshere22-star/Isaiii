@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tamil Kuthu Vibes</title>
+  <style>
+       body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff0f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background-color: #1a1a2e;
+    }
+
+    .back-button {
+      position: absolute;
+      top: 50px;
+      left: 80px;
+      z-index: 10;
+    }
+
+    .back-button1 {
+      position: absolute;
+      top: 50px;
+      left: 40px;
+      z-index: 10;
+    }
+
+    .back-button img,
+    .back-button1 img {
+      width: 40px;
+      height: 40px;
+      transition: transform 0.3s ease;
+    }
+
+    .back-button img:hover,
+    .back-button1 img:hover {
+      transform: scale(1.1);
+    }
+
+    h1 {
+      margin-top: 30px;
+      font-size: 2.5em;
+      color:#348a97;
+      text-shadow: 0 0 10px #174a52;
+      text-align: center;
+    }
+
+    .player-container {
+      margin: 20px auto;
+      width: 90%;
+      max-width: 700px;
+      height: 380px;
+      position: relative;
+      z-index: 1;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 0 20px #348a97;
+    }
+
+    .playlist-tabs {
+      margin: 20px auto 10px;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+      z-index: 1;
+      max-width: 90%;
+    }
+
+    .tab-btn {
+      background:#348a97;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .tab-btn.active {
+      background: #460606;
+      transform: translateY(-2px);
+      box-shadow: 0 0 15px #348a97;
+    }
+
+    .tab-btn:hover {
+      transform: translateY(-2px);
+      background: #348a97;
+    }
+
+    .playlist-info {
+      margin: 10px auto 20px;
+      max-width: 700px;
+      padding: 20px;
+      text-align: center;
+      border-radius: 10px;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.8em;
+      }
+
+      .tab-btn {
+        padding: 8px 15px;
+        font-size: 0.9em;
+      }
+
+      .player-container {
+        height: 300px;
+      }
+
+      .back-button, .back-button1 {
+        top: 15px;
+        left: 15px;
+      }
+
+      .back-button img, .back-button1 img {
+        width: 35px;
+        height: 35px;
+      }
+    }
+  </style>
+</head>
+<body>
+   <div class="back-button1">
+    <a href="home.html"><img src="home.png" alt="Back to Home"></a>
+  </div>
+
+   <div class="back-button">
+     <a href="kuthu home.html"><img src="back arrow.png" alt="Back to Home"></a>
+   </div>
+
+  <h1>Thara Local Kuthu Vibes – Full Volume, Full Energy!</h1>
+
+  <div class="playlist-tabs">
+    <button class="tab-btn active" onclick="loadPlaylist('kuthu')">🔥 Kuthu Beats</button>
+  </div>
+
+  <div class="playlist-info" id="playlist-description">
+    <h3>Thara Local Kuthu Vibes – Full Volume, Full Energy!</h3>
+    <p>Turn up the volume and let your feet take over! 
+      This playlist is packed with unstoppable kuthu energy,
+       perfect for street dance, celebrations, or just vibing solo like a hero.</p>
+  </div>
+
+  <div class="player-container">
+    <iframe id="spotify-player"
+      src="https://open.spotify.com/embed/playlist/7s4xQbV3grZ9iAMEi4qEWN?si=9U1zugyfS4OAr535zkKjCg"
+      frameborder="0"
+      allowtransparency="true"
+      allow="encrypted-media">
+    </iframe>
+  </div>
+
+  <script>
+    const playlists = {
+      kuthu: {
+        id: "7s4xQbV3grZ9iAMEi4qEWN?si=9U1zugyfS4OAr535zkKjCg",
+        title: "🔥 Ultimate Tamil Kuthu Playlist",
+        description: "Turn up the volume and let your feet take over! This playlist is packed with unstoppable kuthu energy, perfect for street dance, celebrations, or just vibing solo like a hero."
+      }
+    };
+
+    function loadPlaylist(type) {
+      const playlist = playlists[type];
+      const player = document.getElementById("spotify-player");
+      const desc = document.getElementById("playlist-description");
+
+      player.src = `https://open.spotify.com/embed/playlist/${playlist.id}`;
+      desc.innerHTML = `<h3>${playlist.title}</h3><p>${playlist.description}</p>`;
+
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      event.target.classList.add('active');
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      loadPlaylist('kuthu');
+    });
+  </script>
+
+</body>
+</html>

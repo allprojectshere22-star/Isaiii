@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Singers Spotlight</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+    body {
+      margin: 0; padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #1a1a2e; color: #fff;
+      display: flex; flex-direction: column;
+      align-items: center;
+    }
+    h1 {
+      margin-top: 40px;
+      margin-bottom:60px;
+      font-size:2.5em;
+      color: #8ec8ff;
+      font-family: "Merienda", cursive;
+      text-shadow: 0 0 15px #8ec8ff;
+      animation: fadeIn 2s ease-out forwards;
+    }
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      max-width: 1200px;
+      padding: 20px;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      width: 260px;
+      padding: 15px;
+      box-shadow: 0 0 15px rgba(255, 221, 182, 0.2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.3s;
+    }
+    .card:hover { transform: translateY(-5px); }
+    .card img {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #8ec8ff;
+    }
+    .card h3 {
+      margin: 15px 0 5px;
+      font-size: 1.2em;
+      color: #8ec8ff;
+    }
+    .card p {
+      font-size: 0.9em;
+      text-align: center; 
+      line-height: 1.4em;
+      color: #cccccc; 
+      margin-bottom: 15px;
+    }
+    .card button {
+      background: #547bf2;
+      border: none; padding: 10px 18px;
+      border-radius: 20px;
+      color: #000000;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .card button:hover {
+      background: #8ec8ff;
+    }
+    footer {
+      margin: 40px 0;
+      font-size: 0.8em;
+      color: #aaa;
+    }
+     .back-button {
+      position: absolute;
+      top: 50px;
+      left: 80px;
+      z-index: 10;
+    }
+    
+    .back-button img {
+      width: 40px;
+      height: 40px;
+      transition: transform 0.3s ease;
+    }
+    
+    .back-button img:hover {
+      transform: scale(1.1);
+    }
+    @media (max-width: 600px) {
+      .card { width: 90%; }
+    }
+  </style>
+</head>
+<body>
+   <div class="back-button">
+    <a href="home.html"><img src="back arrow.png" alt="Back to Home"></a>
+   </div>
+
+  <h1>🎤 Singers Spotlight</h1>
+
+  <div class="grid">
+    <!-- Singer 1 -->
+    <div class="card">
+      <img src="spb2.jpg" alt="SPB"/>
+      <h3>S. P. Balasubrahmanyam</h3>
+      <p>Legendary playback singer across Tamil, Telugu, Kannada & Malayalam, with over 40,000 songs.</p>
+      <button onclick="play('37i9dQZF1E4F9p1Si44xY1?si=r8NYyTjBT-mxd5A66iQVhg')">Play SPB Playlist</button>
+    </div>
+
+    <!-- Singer 2 -->
+    <div class="card">
+      <img src="chithra.jpg" alt="K. S. Chithra"/>
+      <h3>K. S. Chithra</h3>
+      <p>“Nightingale of South India”—known for her mellifluous voice in multiple languages.</p>
+      <button onclick="play('37i9dQZF1DZ06evO1z9P4i?si=j-CeTYNET7KKJ1BJZeMKEA')">Play Chithra Playlist</button>
+    </div>
+
+    <!-- Singer 3 -->
+    <div class="card">
+      <img src="yesudas.jpg" alt="K. J. Yesudas"/>
+      <h3>K. J. Yesudas</h3>
+      <p>Classical maestro turned playback icon; loved across Kerala and beyond.</p>
+      <button onclick="play('37i9dQZF1DZ06evO1rT8nB?si=fapG3MldT62hmEhqvmPgVQ')">Play Yesudas Playlist</button>
+    </div>
+
+    <!-- Singer 4 -->
+    <div class="card">
+      <img src="shreya1.jpg" alt="Shreya Ghoshal"/>
+      <h3>Shreya Ghoshal</h3>
+      <p>A voice of sweetness—renowned for her soulful Tamil and Telugu renditions.</p>
+      <button onclick="play('37i9dQZF1E4vqXjPu7Hg0z?si=ftQsYjabTsOOEUWYO92yzg')">Play Shreya Playlist</button>
+    </div>
+
+    <!-- Singer 5 -->
+    <div class="card">
+      <img src="sid.jpg" alt="Sid Sriram"/>
+      <h3>Sid Sriram</h3>
+      <p>Modern-day heartthrob blending soulful styles in Tamil and Telugu.</p>
+      <button onclick="play('37i9dQZF1DZ06evO4ovoG0?si=NnuE-FKZRlO2F9kySDGdsw')">Play Sid Sriram</button>
+    </div>
+
+    <!-- Singer 6 -->
+    <div class="card">
+      <img src="chinmayi.jfif" alt="Chinmayi"/>
+      <h3>Chinmayi</h3>
+      <p>Versatile singer, voice behind many contemporary Tamil & Telugu hits.</p>
+      <button onclick="play('37i9dQZF1DZ06evO3ubycb?si=VSG7ZXpiQJmQWOF2pI7jGA')">Play Chinmayi Playlist</button>
+    </div>
+
+    <!-- Singer 7 -->
+    <div class="card">
+      <img src="hariharan.jpg" alt="Hariharan"/>
+      <h3>Hariharan</h3>
+      <p>Ghanzal legend who lent his voice to Tamil, Malayalam & Kannada songs.</p>
+      <button onclick="play('37i9dQZF1DZ06evO1BRhFv?si=7WejrF1TQlW_7lD46FUqbw')">Play Hariharan Playlist</button>
+    </div>
+
+    <!-- Singer 8 -->
+    <div class="card">
+      <img src="andrea.jpg" alt="Andrea Jeremiah"/>
+      <h3>Andrea Jeremiah</h3>
+      <p>Actor-singer known for her energetic Tamil playback and indie pop.</p>
+      <button onclick="play('37i9dQZF1DZ06evO3gKjqU?si=5ekE9h5FTkqoAFUqMx8rZw')">Play Andrea Playlist</button>
+    </div>
+
+    <!-- Singer 9 -->
+    <div class="card">
+      <img src="vijay yesudas.jpg" alt="Vijay Yesudas"/>
+      <h3>Vijay Yesudas</h3>
+      <p>Son of K.J. Yesudas, continuing the legacy in Tamil & Malayalam.</p>
+      <button onclick="play('37i9dQZF1DZ06evO025RaP?si=dAVE17YIQzibZqZSWOWPuA')">Play Vijay Y's Playlist</button>
+    </div>
+
+    <!-- Singer 10 -->
+    <div class="card">
+      <img src="aniruth.jpg" alt="Anirudh Ravichander"/>
+      <h3>Anirudh Ravichander</h3>
+      <p>Composer-singer who gave viral Tamil hits like “Why This Kolaveri”.</p>
+      <button onclick="play('37i9dQZF1DZ06evO2GbnbB?si=k-dokyThSA2t4zrYr7ZLeg')">Play Anirudh Playlist</button>
+    </div>
+
+    <!-- Singer 11 -->
+    <div class="card">
+      <img src="shankar.jpg" alt="Shankar Mahadevan"/>
+      <h3>Shankar Mahadevan</h3>
+      <p>Part of Shankar-Ehsaan-Loy, renowned for soulful Tamil and Kannada tracks.</p>
+      <button onclick="play('37i9dQZF1DZ06evO13LuDy?si=oLsjSgWiRgePp4nVA36pOA')">Play Shankar's Hits</button>
+    </div>
+
+    <!-- Singer 12 -->
+    <div class="card">
+      <img src="Saindhavi.jpg" alt="Saindhavi"/>
+      <h3>Saindhavi</h3>
+      <p>Emerging voice in Tamil and Telugu with emotive renditions.</p>
+      <button onclick="play('37i9dQZF1E4ztHCDxiNQtI?si=WyypwjNPSMCosjkxN1Tdag')">Play Saindhavi Playlist</button>
+    </div>
+    <!-- Singer 13 -->
+<div class="card">
+  <img src="tippu.jfif" alt="Tippu">
+  <h3>Tippu</h3>
+  <p>Known for his powerful voice in high-energy tracks like “Ennai Konjam”.</p>
+  <button onclick="play('37i9dQZF1EIUULuP8khoxx?si=YTMOrwkrQCW5xOreONV1Mw')">Play Tippu Playlist</button>
+</div>
+
+<!-- Singer 14 -->
+<div class="card">
+  <img src="unnikrishnan.jpg" alt="Unnikrishnan">
+  <h3>P. Unnikrishnan</h3>
+  <p>Classical background blended into beautiful Tamil film melodies.</p>
+  <button onclick="play('37i9dQZF1E4pAG4282y45v?si=Io2EAsgtS9KMMA-ICCahZw')">Play Unnikrishnan Playlist</button>
+</div>
+
+<!-- Singer 15 -->
+<div class="card">
+  <img src="srinivas.jpg" alt="Srinivas">
+  <h3>Srinivas</h3>
+  <p>Soulful singer behind many A. R. Rahman hits in the '90s and 2000s.</p>
+  <button onclick="play('37i9dQZF1DZ06evO2bdbRV?si=hpMZTkE1RkyHJ_yT7ooEjwQ')">Play Srinivas Playlist</button>
+</div>
+
+<!-- Singer 16 -->
+<div class="card">
+  <img src="anuradha.jpg" alt="Swarnalatha">
+  <h3>Anuradha Sriram</h3>
+  <p>Iconic voice with a hauntingly unique texture in Tamil classics.</p>
+  <button onclick="play('37i9dQZF1DZ06evO3qfUll?si=RTqLmakGSmetwCQlg3qTIA')">Play Anuradha Playlist</button>
+</div>
+
+<!-- Singer 17 -->
+<div class="card">
+  <img src="janaki.jpg" alt="S. Janaki">
+  <h3>S. Janaki</h3>
+  <p>The “Nightingale of the South” known for expressive emotional range.</p>
+  <button onclick="play('37i9dQZF1DZ06evO3vNCZb?si=ub5R6-6pTMy916_pK0Gq0w')">Play Janaki Playlist</button>
+</div>
+
+<!-- Singer 18 -->
+<div class="card">
+  <img src="ghibran.jfif" alt="Ghibran">
+  <h3>Ghibran</h3>
+  <p>Modern composer-singer known for stylish and experimental tracks.</p>
+  <button onclick="play('37i9dQZF1DZ06evO1VbsW0?si=3U8fuJlUTbiUmR2Pbi3JYg')">Play Ghibran Playlist</button>
+</div>
+
+  </div>
+
+
+
+  <script>
+    function play(pid) {
+      const embedUrl = `https://open.spotify.com/embed/playlist/${pid}`;
+      let iframe = document.querySelector("iframe#globalPlayer");
+      if(!iframe) {
+        iframe = document.createElement("iframe");
+        iframe.id = "globalPlayer";
+        iframe.setAttribute("allow", "encrypted-media");
+        iframe.style = "width:50%;height:600px; margin-bottom:40px;border:none;margin-top:20px;border-radius:12px;box-shadow:0 0 15px rgba(255,182,255,0.2);";
+        document.body.appendChild(iframe);
+      }
+      iframe.src = embedUrl;
+      iframe.scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+    <footer>© 2025 Nilavu Isai | <a href="#" style="color:#ffb3f7">Privacy Policy</a></footer>
+</body>
+</html>

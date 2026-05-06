@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tamil Songs</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff0f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background-color: #1a1a2e;
+    }
+    
+    .back-button {
+      position: absolute;
+      top: 50px;
+      left: 80px;
+      z-index: 10;
+    }
+    
+    .back-button img {
+      width: 40px;
+      height: 40px;
+      transition: transform 0.3s ease;
+    }
+    
+    .back-button img:hover {
+      transform: scale(1.1);
+    }
+
+    .back-button1 {
+      position: absolute;
+      top: 50px;
+      left: 40px;
+      z-index: 10;
+    }
+    
+    .back-button1 img {
+      width: 40px;
+      height: 40px;
+      transition: transform 0.3s ease;
+    }
+    
+    .back-button1 img:hover {
+      transform: scale(1.1);
+    }
+
+    h1 {
+      margin-top: 30px;
+      font-size: 2.5em;
+      color: #ff5b5b;
+      text-shadow: 0 0 10px rgba(255, 75, 75, 0.7);
+    }
+
+    .player-container {
+      margin: 20px auto;
+      width: 90%;
+      max-width: 700px;
+      height: 380px;
+      position: relative;
+      z-index: 1;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 0 20px #ff7a7a;
+    }
+
+    .playlist-tabs {
+      margin: 20px auto 10px;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+      z-index: 1;
+      max-width: 90%;
+    }
+
+    .tab-btn {
+      background: #ff5b5b;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .tab-btn.active {
+      background: #460606;
+      transform: translateY(-2px);
+      box-shadow: 0 0 15px #ff9999;
+    }
+
+    .tab-btn:hover {
+      transform: translateY(-2px);
+      background: #ff7676;
+    }
+
+    .playlist-info {
+      margin: 10px auto 20px;
+      max-width: 700px;
+      padding: 20px;
+      text-align: center;
+      border-radius: 10px;
+    }
+.floating-notes {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .float-emoji {
+      position: fixed;
+      bottom: -20px;
+      font-size: 24px;
+      animation: float-up 8s linear forwards;
+      z-index: 0;
+      pointer-events: none;
+      color: #ff7a7a;
+    }
+
+    @keyframes float-up {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-120vh) scale(1.2);
+        opacity: 0;
+      }
+    }
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.8em;
+      }
+
+      .tab-btn {
+        padding: 8px 15px;
+        font-size: 0.9em;
+      }
+
+      .player-container {
+        height: 300px;
+      }
+
+      .back-button, .back-button1 {
+        top: 15px;
+      }
+
+      .back-button img, .back-button1 img {
+        width: 35px;
+        height: 35px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="back-button1">
+    <a href="home.html"><img src="home.png" alt="Back to Home"></a>
+  </div>
+
+  <div class="back-button">
+    <a href="kaadhal home.html"><img src="back arrow.png" alt="Back"></a>
+  </div>
+
+  <h1>💓 Kaadhal Thendral – Love in Every Beat</h1>
+
+  <div class="playlist-tabs">
+    <button class="tab-btn active" onclick="loadPlaylist('romantic1', this)">💖 Romantic Melodies</button>
+    <button class="tab-btn" onclick="loadPlaylist('romantic2', this)">🌸 Kadhal Hits</button>
+    <button class="tab-btn" onclick="loadPlaylist('romantic3', this)">🎧 Heartfelt Love Hits</button>
+    <button class="tab-btn" onclick="loadPlaylist('romantic4', this)">❤️ Latest Trending Romance</button>
+  </div>
+
+  <div class="playlist-info" id="playlist-description">
+    <h3>💘 Feel the Romance</h3>
+    <p>Let your heart sway to soulful Tamil love songs that whisper emotions.</p>
+  </div>
+
+  <div class="player-container">
+    <iframe id="spotify-player"
+      src="https://open.spotify.com/embed/playlist/7s4xQbV3grZ9iAMEi4qEWN?si=9U1zugyfS4OAr535zkKjCg"
+      frameborder="0"
+      allowtransparency="true"
+      allow="encrypted-media">
+    </iframe>
+  </div>
+<div class="floating-notes" id="float-container"></div>
+  <script>
+    const playlists = {
+      romantic1: {
+        id: "37i9dQZF1DWYfvJNWU1bKi?si=xSfSyi9DTbKHfyRhmt5MLw",
+        title: "💘 Feel the Romance",
+        description: "Let your heart sway to soulful Tamil love songs that whisper emotions."
+      },
+      romantic2: {
+        id: "6mkGqTjxLkkSraARHhpHBq?si=qdsWTJH9QGaA2Oi3MDAWWA",
+        title: "🌸 Kadhal Hits",
+        description: "Top romantic hits that define modern Tamil love music."
+      },
+      romantic3: {
+        id: "27iCFCXm21YOc5jEmIqZDD?si=ZcvAF0yeQnaQvXEDMT-jiw",
+        title: "🎧 Heartfelt Love Hits",
+        description: "Unforgettable melodies that never age — pure romance!"
+      },
+      romantic4: {
+        id: "37i9dQZF1DWWWpLwNv0bd2?si=dI_Y7KFpQzS72CvvbL5Ulw",
+        title: "❤️ Latest Trending Romance",
+        description: "Fresh Tamil love songs trending across playlists now."
+      }
+    };
+
+    function loadPlaylist(type, el) {
+      const playlist = playlists[type];
+      const player = document.getElementById("spotify-player");
+      const desc = document.getElementById("playlist-description");
+
+      player.src = `https://open.spotify.com/embed/playlist/${playlist.id}`;
+      desc.innerHTML = `<h3>${playlist.title}</h3><p>${playlist.description}</p>`;
+
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      el.classList.add('active');
+    }
+
+    // Auto load the first playlist on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      const firstTab = document.querySelector('.tab-btn');
+      if (firstTab) firstTab.click();
+    });
+
+
+     const emojis = ['😍', '🎶', '💕', '😘'];
+    const floatContainer = document.getElementById("float-container");
+
+    function createFloatingEmoji() {
+      const emoji = document.createElement("div");
+      emoji.className = "float-emoji";
+      emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+      emoji.style.left = Math.random() * 100 + "vw";
+      emoji.style.animationDuration = 4 + Math.random() * 4 + "s";
+      floatContainer.appendChild(emoji);
+      setTimeout(() => emoji.remove(), 8000);
+    }
+
+    setInterval(createFloatingEmoji, 500);
+      event.target.classList.add('active');
+    window.addEventListener('DOMContentLoaded', () => {
+      loadPlaylist('romantic');
+    });
+  </script>
+</body>
+</html>

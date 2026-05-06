@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soga Thendral</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Courgette&family=Poppins:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Merienda:wght@300..900&display=swap');
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(145deg, #3b0425, #0c0a48);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      margin-top: 40px;
+      font-size: 3em;
+      color: #f7d0ff;
+      font-family: "Merienda", cursive;
+      text-shadow: 0 0 15px rgba(255, 182, 255, 0.8);
+      animation: fadeIn 2s ease-out forwards;
+    }
+
+    .language-container {
+      margin: 50px auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 25px;
+      max-width: 800px;
+      width: 90%;
+    }
+
+    .lang-card {
+      background: rgba(238, 180, 241, 0.986);
+      border: 4px solid rgb(100, 8, 106);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 20px 10px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(222, 76, 222, 0.3);
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .lang-card:hover {
+      transform: scale(1.08);
+      background: #f5bf4b;
+    }
+
+    .lang-card a {
+      text-decoration: none;
+      color: #1b021a;
+      font-size: 1.1em;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    .footer {
+      margin-top: auto;
+      background: #2c1a47;
+      padding: 30px 20px;
+      width: 100%;
+      text-align: center;
+      color: #ccc;
+      font-size: 0.9em;
+    }
+
+    .footer a {
+      color: #f7d0ff;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: 600;
+    }
+
+    .cta-box {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 20px 30px;
+      border-radius: 15px;
+      margin-bottom: 30px;
+      margin-left: 430px;
+      margin-right: 430px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(255, 182, 255, 0.2);
+    }
+
+    .cta-box h2 {
+      margin-bottom: 10px;
+      color: #ffb3f7;
+    }
+
+    .cta-box p {
+      margin-bottom: 15px;
+    }
+
+    .cta-box a {
+      display: inline-block;
+      background: #e46eff;
+      padding: 10px 20px;
+      border-radius: 20px;
+      color: white;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .cta-box a:hover {
+      background: #d154f2;
+    }
+    .back-button {
+      position: absolute;
+      top: 50px;
+      left: 80px;
+      z-index: 10;
+    }
+    
+    .back-button img {
+      width: 40px;
+      height: 40px;
+      transition: transform 0.3s ease;
+    }
+    
+    .back-button img:hover {
+      transform: scale(1.1);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2em;
+        text-align: center;
+        padding: 0 10px;
+      }
+
+      .lang-card a {
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="back-button">
+    <a href="home.html"><img src="back arrow.png" alt="Back to Home"></a>
+  </div>
+
+  <h1>Soga Thendral</h1>
+   <div class="language-container">
+    <div class="lang-card"><a href="soga tamil.html">Tamil</a></div>
+    <div class="lang-card"><a href="sad eng.html">English</a></div>
+    <div class="lang-card"><a href="sad mala.html">Malayalam</a></div>
+    <div class="lang-card"><a href="sad telu.html">Telugu</a></div>
+    <div class="lang-card"><a href="sad kann.html">Kannada</a></div>
+  </div>
+
+  <div class="cta-box">
+  <h2>When Melodies Mourn and Memories Speak</h2>
+  <p>Enter the storm of silence, where each song is a tear unshed and every
+     lyric lingers like a lost goodbye. This is your safe space to feel, remember, 
+     and heal — one soulful note at a time.</p>
+</div>
+
+
+  <div class="footer">
+    © 2025 Kaadhal Thendral | <a href="#">Privacy Policy</a> | <a href="#">Contact</a>
+  </div>
+</body>
+</html>

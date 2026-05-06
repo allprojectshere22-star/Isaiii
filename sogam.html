@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lo-Fi Vibes 🎧</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <h1 class="title">Lo-Fi Vibes 🎧</h1>
+
+    <div class="container">
+      <div class="mood-buttons">
+        <button class="mood-btn" onclick="setMood('chill')">Chill</button>
+        <button class="mood-btn" onclick="setMood('study')">Study</button>
+        <button class="mood-btn" onclick="setMood('rainy')">Rainy</button>
+      </div>
+
+      <div class="player-section">
+        <iframe id="player" class="player" src="https://open.spotify.com/track/3RVKJOoIVKXicFvNO7b2iK?si=a59128cfb9c44f83" frameborder="0" allowfullscreen></iframe>
+      </div>
+
+      <p id="quote" class="quote">“Peace begins with a deep breath.”</p>
+    </div>
+  </div>
+
+  <script>
+    const moods = {
+      chill: {
+        url: "https://open.spotify.com/track/3RVKJOoIVKXicFvNO7b2iK?si=a59128cfb9c44f83",
+        quote: "Peace begins with a deep breath."
+      },
+      study: {
+        url: "https://www.youtube.com/embed/jfKfPyoutufyJRdk",
+        quote: "Study like you're the main character."
+      },
+      rainy: {
+        url: "https://www.youtube.com/emn_R0bed/DWcJFNfaw9c",
+        quote: "Rain falls, thoughts flow."
+      }
+    };
+
+    function setMood(mood) {
+      const player = document.getElementById("player");
+      const quote = document.getElementById("quote");
+      player.src = moods[mood].url;
+      quote.textContent = `“${moods[mood].quote}”`;
+    }
+  </script>
+</body>
+</html>

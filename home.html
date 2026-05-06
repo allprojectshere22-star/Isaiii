@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign In - Kaadhal Thendral</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom right, #1a1a2e, #3c1053);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #fff;
+    }
+
+    .back-button {
+      position: absolute;
+      top: 50px;
+      left: 80px;
+      z-index: 10;
+    }
+    
+    .back-button img {
+      width: 40px;
+      height: 40px;
+      transition: transform 0.3s ease;
+    }
+    
+    .back-button img:hover {
+      transform: scale(1.1);
+    }
+    .signin-box {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 40px 70px 40px 50px;
+      border: 3px solid #e46eff;
+      border-radius: 15px;
+      box-shadow: 0 0 40px rgba(255, 182, 255, 0.2);
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+    }
+
+    .signin-box h2 {
+      margin-bottom: 25px;
+      color: #ffb3f7;
+    }
+
+    .signin-box input {
+      width: 100%;
+      padding: 12px 15px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      font-size: 1em;
+    }
+
+    .signin-box button {
+      margin-top: 15px;
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      background: #e46eff;
+      color: white;
+      font-size: 1em;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .signin-box button:hover {
+      background: #d154f2;
+    
+    }
+
+    .signin-box p {
+      margin-top: 20px;
+      font-size: 0.9em;
+    }
+
+    .signin-box a {
+      color: #ffb3f7;
+      text-decoration: none;
+    }
+
+    .signin-box a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+<div class="back-button">
+     <a href="Home.html"><img src="back arrow.png" alt="Back to Home"></a>
+   </div>
+  <div class="signin-box">
+    <h2>Sign In to Kaadhal Thendral</h2>
+    <form action="#">
+      <input type="email" placeholder="Email" required />
+      <input type="password" placeholder="Password" required />
+      <button type="submit">Sign In</button>
+    </form>
+    <p>Don't have an account? <a href="register.html">Register</a></p>
+  </div>
+<script>
+  document.querySelector('form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const email = document.querySelector('input[type="email"]');
+    const password = document.querySelector('input[type="password"]');
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+    if (!email.value.trim() || !password.value.trim()) {
+      alert("Please fill in both fields.");
+      return;
+    }
+
+    if (!emailRegex.test(email.value)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+
+    if (password.value.length < 6) {
+      alert("Password must be at least 6 characters long.");
+      return;
+    }
+s
+    alert("Login successful! Redirecting...");
+
+    window.location.href = "celeb.html"; 
+  });
+</script>
+
+</body>
+</html>

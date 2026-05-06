@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Soga Puyal</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff0f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background-color: #1a1a2e;
+    }
+
+    .back-button, .back-button1 {
+      position: absolute;
+      top: 50px;
+      z-index: 10;
+    }
+
+    .back-button { left: 80px; }
+    .back-button1 { left: 40px; }
+
+    .back-button img, .back-button1 img {
+      width: 40px;
+      height: 40px;
+      transition: transform 0.3s ease;
+    }
+
+    .back-button img:hover, .back-button1 img:hover {
+      transform: scale(1.1);
+    }
+
+    h1 {
+      margin-top: 30px;
+      font-size: 2.5em;
+      color: #feb631;
+      text-shadow: 0 0 10px #feb631;
+      text-align: center;
+    }
+
+    .player-container {
+      margin: 20px auto;
+      width: 90%;
+      max-width: 700px;
+      height: 380px;
+      position: relative;
+      z-index: 1;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 0 20px #feb631;
+    }
+
+    .playlist-tabs {
+      margin: 20px auto 10px;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+      z-index: 1;
+      max-width: 90%;
+    }
+
+    .tab-btn {
+      background: #feb631;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .tab-btn.active {
+      background: #460606;
+      transform: translateY(-2px);
+      box-shadow: 0 0 15px #ff9999;
+    }
+
+    .tab-btn:hover {
+      transform: translateY(-2px);
+      background: #db990b;
+    }
+
+    .playlist-info {
+      margin: 10px auto 20px;
+      max-width: 700px;
+      padding: 20px;
+      text-align: center;
+      border-radius: 10px;
+    }
+
+    .floating-notes {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .float-emoji {
+      position: fixed;
+      bottom: -20px;
+      font-size: 24px;
+      animation: float-up 8s linear forwards;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    @keyframes float-up {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-120vh) scale(1.2);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.8em;
+      }
+
+      .tab-btn {
+        padding: 8px 15px;
+        font-size: 0.9em;
+      }
+
+      .player-container {
+        height: 300px;
+      }
+
+      .back-button, .back-button1 {
+        top: 15px;
+      }
+
+      .back-button img, .back-button1 img {
+        width: 35px;
+        height: 35px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="back-button1">
+    <a href="home.html"><img src="home.png" alt="Home"></a>
+  </div>
+
+  <div class="back-button">
+    <a href="Sogam home.html"><img src="back arrow.png" alt="Back"></a>
+  </div>
+
+  <h1>🌧️ Soga Puyal – Let the Pain Pour Like Rain</h1>
+
+  <div class="playlist-tabs">
+    <button class="tab-btn active" onclick="loadPlaylist('Ballads', this)">💖 Soga Puyal</button>
+    <button class="tab-btn" onclick="loadPlaylist('KadhalThunai', this)">🥀 Kadhal Thunai</button>
+    <button class="tab-btn" onclick="loadPlaylist('ThanimaiThedal', this)">💔 Thanimai Thedal</button>
+    <button class="tab-btn" onclick="loadPlaylist('MazhaiNenjil', this)">🌧 Mazhaiyil Nenjil</button>
+  </div>
+
+  <div class="playlist-info" id="playlist-description">
+    <h3>🎻 Tamil Soulful Melodies for Broken Hearts</h3>
+    <p>When words fail, let these melodies speak your pain. From lonely nights to unspoken love, this playlist carries every tear in tune.</p>
+  </div>
+
+  <div class="player-container">
+    <iframe id="spotify-player"
+      src="https://open.spotify.com/embed/playlist/0AyOLKzLZZmlliok7bu1mp?si=CObGoxfgSfyxSdQnIEr7xg"
+      allowtransparency="true" allow="encrypted-media">
+    </iframe>
+  </div>
+
+  <div class="floating-notes" id="float-container"></div>
+
+  <script>
+    const playlists = {
+      Ballads: {
+        id: "0AyOLKzLZZmlliok7bu1mp?si=CObGoxfgSfyxSdQnIEr7xg",
+        title: "🎻 Tamil Soulful Melodies for Broken Hearts",
+        description: "When words fail, let these melodies speak your pain. From lonely nights to unspoken love, this playlist carries every tear in tune."
+      },
+      KadhalThunai: {
+        id: "37i9dQZF1DX3bcfiyW6qms?si=b4x_ryPnR-6YDg6ROoEoYQ",
+        title: "🥀 Kadhal Thunai – Solitude in Love",
+        description: "Feel the ache of waiting and longing, where each lyric hugs a lonely heart with bittersweet memories."
+      },
+      ThanimaiThedal: {
+        id: "4c4spdFwXBKiFTqug4i0FK?si=_6AuttACRtezATiwRAm3jQ",
+        title: "💔 Thanimai Thedal – Searching in Silence",
+        description: "A playlist that captures the silence after love fades, echoing your search for what was lost."
+      },
+      MazhaiNenjil: {
+        id: "1b28eTgS0RGdVPFVCkcR2w?si=MXmFVtK3RiK7cUnOfHCcmg",
+        title: "🌧 Mazhaiyil Nenjil – Rain-Soaked Memories",
+        description: "Let each raindrop blend with your tears, as these songs whisper tales of emotional downpours."
+      }
+    };
+
+    function loadPlaylist(type, btn) {
+      const playlist = playlists[type];
+      const player = document.getElementById("spotify-player");
+      const desc = document.getElementById("playlist-description");
+
+      player.src = `https://open.spotify.com/embed/playlist/${playlist.id}`;
+      desc.innerHTML = `<h3>${playlist.title}</h3><p>${playlist.description}</p>`;
+
+      document.querySelectorAll('.tab-btn').forEach(button => button.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    const emojis = ['🎶', '💔', '💖', '💕', '🥀'];
+    const floatContainer = document.getElementById("float-container");
+
+    function createFloatingEmoji() {
+      const emoji = document.createElement("div");
+      emoji.className = "float-emoji";
+      emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+      emoji.style.left = Math.random() * 100 + "vw";
+      emoji.style.animationDuration = 4 + Math.random() * 4 + "s";
+      floatContainer.appendChild(emoji);
+      setTimeout(() => emoji.remove(), 8000);
+    }
+
+    setInterval(createFloatingEmoji, 500);
+  </script>
+
+</body>
+</html>
